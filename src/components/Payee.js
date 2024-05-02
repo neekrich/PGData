@@ -12,7 +12,7 @@ import {
     Legend,
 } from "chart.js";
 
-//import { barChartData } from "../test_data";
+
 
 ChartJS.register(
     CategoryScale,
@@ -33,7 +33,7 @@ export const PayeeData = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Replace 'https://api.example.com/data' with your actual API endpoint
+                // 
                 const response = await axios.get('https://data.princegeorgescountymd.gov/resource/sk5x-gxv7.json?$query=SELECT%20%60payee_name%60%2C%20%60agency%60%2C%20%60amount%60%2C%20%60payment_description%60%0AWHERE%20%60amount%60%20%3E%20%22100.00%22');
                 const rawData = response.data;
                 
@@ -79,7 +79,7 @@ export const PayeeData = () => {
 
     const options = {
         responsive: true, // Enable responsiveness
-        maintainAspectRatio: false, // Add this to prevent maintaining the aspect ratio
+        maintainAspectRatio: false, 
         plugins: {
             legend: {
                 position: "top",
@@ -97,14 +97,14 @@ export const PayeeData = () => {
 };
 
 
-    // Dummy aggregation function - customize as needed
+    // 
     const aggregateData = (data) => {
         return data.reduce((acc, item) => {
-            const key = item.payee_name; // Adjust 'yourKey' to your specific field
+            const key = item.payee_name;
             if (!acc[key]) {
                 acc[key] = 0;
             }
-            acc[key] += parseFloat(item.amount); // Replace 'yourValue' with your actual data field
+            acc[key] += parseFloat(item.amount); 
             return acc;
         }, {});
     };
@@ -116,20 +116,3 @@ export const PayeeData = () => {
     );
 };
 
-
-//export const LineChart = () => {
-    //const options = {
-        //responsive: true,
-        //plugins: {
-            //legend: {
-                //position: "top",
-           // },
-            // title: {
-            // display: true,
-            //text: "This is the title",
-        //},
-    //},
-//}
-    
-    //return <Line options={options} data={ lineChartData } />;
-//};
